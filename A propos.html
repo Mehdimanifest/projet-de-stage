@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #e9ecef;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-right: 2rem;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            color: #2c3e50;
+            
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-grow: 1;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item a:hover {
+            background-color: #f5f6fa;
+            color: #3498db;
+        }
+
+        .auth-container {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .auth-buttons {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .auth-buttons:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .auth-buttons:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .auth-buttons {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+        }
+
+        .auth-buttons.register {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+
+        .auth-buttons::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .auth-buttons:hover::before {
+            left: 100%;
+        }
+
+        /* Styles pour la section Actualités */
+        .news-section {
+            padding: 2rem;
+            max-width: 900px;
+            margin: 2rem auto;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .news-section h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .news-item {
+            background-color: #ffffff;
+            padding: 1rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .news-item h3 {
+            color: #3498db;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .news-item p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+        }
+
+        .news-item a {
+            text-decoration: none;
+            color: #e67e22;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Imgs/téléchargé.jpg" alt="Logo">
+            <span class="logo-text">Ministère de l'Aménagement du territoire national</span>
+            
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="index.html">Accueil</a></li>
+            <li class="nav-item"><a href="E-services.html">E-services</a></li>
+            <li class="nav-item"><a href="Ministre.html">Ministre</a></li>
+            <li class="nav-item"><a href="A propos.html">À propos</a></li>
+        </ul>
+        <div class="auth-container">
+            <a href="Login.html" class="auth-buttons">Login</a>
+            <a href="Register.html" class="auth-buttons register">Register</a>
+        </div>
+    </nav>
+    <main>
+        <section class="minister-about" style="max-width:900px;margin:2rem auto 2rem auto;padding:2rem;background:#fff;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.07);">
+            <h2 style="color:#2c3e50;text-align:center;margin-bottom:1.5rem;">À propos du Ministre de l'Habitat</h2>
+            <div style="display:flex;align-items:flex-start;gap:2rem;flex-wrap:wrap;">
+                <img src="Imgs/téléchargé (2).jpg" alt="Photo du Ministre" style="width:180px;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <div style="flex:1;min-width:220px;">
+                    <h3 style="color:#3498db;margin-bottom:0.5rem;">Mme Fatima Ezzahra EL MANSOURI</h3>
+                    <p style="color:#555;line-height:1.7;">Ministre de l'Aménagement du Territoire National, de l'Urbanisme, de l'Habitat et de la Politique de la Ville depuis octobre 2021. Avocate de formation, elle est également Maire de Marrakech et membre du Parti Authenticité et Modernité. Son engagement porte sur le développement territorial, l'amélioration du cadre de vie et la promotion de l'habitat décent pour tous les citoyens marocains.</p>
+                </div>
+            </div>
+        </section>
+        <section class="contact-map-section" style="max-width:900px;margin:2rem auto 2rem auto;padding:2rem;background:#f9f9f9;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+            <h2 style="color:#2c3e50;text-align:center;margin-bottom:1.5rem;">Contact & Localisation</h2>
+            <div style="display:flex;flex-wrap:wrap;gap:2rem;align-items:flex-start;">
+                <div style="flex:1;min-width:220px;">
+                    <h4 style="color:#3498db;margin-bottom:0.7rem;">Coordonnées</h4>
+                    <p style="margin:0.3rem 0;"><strong>Email :</strong> contact@habitat.gov.ma</p>
+                    <p style="margin:0.3rem 0;"><strong>Téléphone :</strong> 05 37 67 15 00</p>
+                    <p style="margin:0.3rem 0;"><strong>Adresse :</strong> Avenue Al Araar, Secteur 16, Hay Riad, Rabat, Maroc</p>
+                    <p style="margin:0.3rem 0;"><strong>Horaires :</strong> Lundi - Vendredi : 8h30 - 16h30</p>
+                </div>
+                <div style="flex:2;min-width:280px;">
+                    <iframe src="https://www.google.com/maps?q=Minist%C3%A8re+de+l'Habitat+Rabat+Maroc&output=embed" width="100%" height="220" style="border:0;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer style="background:#2c3e50;color:#fff;text-align:center;padding:1.2rem 0;margin-top:2rem;font-size:1rem;">
+        &copy; 2024 Ministère de l'Habitat et de la Politique de la Ville. Tous droits réservés.
+    </footer>
+</body>
+</html>

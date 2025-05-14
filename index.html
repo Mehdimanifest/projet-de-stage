@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #e9ecef;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-right: 2rem;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            color: #2c3e50;
+            
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-grow: 1;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item a:hover {
+            background-color: #f5f6fa;
+            color: #3498db;
+        }
+
+        .auth-container {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .auth-buttons {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .auth-buttons:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .auth-buttons:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .auth-buttons {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+        }
+
+        .auth-buttons.register {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+
+        .auth-buttons::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .auth-buttons:hover::before {
+            left: 100%;
+        }
+
+        /* Styles pour la section Actualités */
+        .news-section {
+            padding: 2rem;
+            max-width: 900px;
+            margin: 2rem auto;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .news-section h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .news-item {
+            background-color: #ffffff;
+            padding: 1rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .news-item h3 {
+            color: #3498db;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .news-item p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+        }
+
+        .news-item a {
+            text-decoration: none;
+            color: #e67e22;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Imgs/téléchargé.jpg" alt="Logo">
+            <span class="logo-text">Ministère de l'Aménagement du territoire national</span>
+            
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="index.html">Accueil</a></li>
+            <li class="nav-item"><a href="E-services.html">E-services</a></li>
+            <li class="nav-item"><a href="Ministre.html">Ministre</a></li>
+            <li class="nav-item"><a href="A propos.html">À propos</a></li>
+        </ul>
+        <div class="auth-container">
+            <a href="Login.html" class="auth-buttons">Login</a>
+            <a href="Register.html" class="auth-buttons register">Register</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="news-section">
+            <h2>Actualités Habitat au Maroc</h2>
+            <div class="news-grid">
+                <article class="news-item">
+                    <img src="Imgs/MATNUHPV-RABAT-1100x619.avif" alt="Aide logement jeunes" style="width:100%;height:120px;object-fit:cover;border-radius:8px 8px 0 0;margin-bottom:0.7rem;">
+                    <h3>Nouvelles aides au logement pour les jeunes</h3>
+                    <p>Le gouvernement annonce un nouveau programme d'aide ciblant les primo-accédants de moins de 35 ans...</p>
+                    <a href="#">Lire la suite &rarr;</a>
+                </article>
+                <article class="news-item">
+                    <img src="Imgs/téléchargé (1).jpg" alt="Construction durable Maroc" style="width:100%;height:120px;object-fit:cover;border-radius:8px 8px 0 0;margin-bottom:0.7rem;">
+                    <h3>Construction durable : Le Maroc accélère</h3>
+                    <p>Focus sur les dernières initiatives en matière de construction écologique et les nouvelles normes énergétiques...</p>
+                    <a href="#">Lire la suite &rarr;</a>
+                </article>
+                <article class="news-item">
+                    <img src="Imgs/téléchargé (3).jpg" alt="Marché immobilier Casablanca" style="width:100%;height:120px;object-fit:cover;border-radius:8px 8px 0 0;margin-bottom:0.7rem;">
+                    <h3>Le marché immobilier à Casablanca en 2024</h3>
+                    <p>Analyse des tendances actuelles, évolution des prix et perspectives pour l'immobilier dans la métropole...</p>
+                    <a href="#">Lire la suite &rarr;</a>
+                </article>
+            </div>
+        </section>
+    </main>
+    <section class="departement-programs" style="background:linear-gradient(120deg,#e9ecef 60%,#f5f6fa 100%);padding:2.5rem 0;">
+        <div style="max-width:1000px;margin:0 auto;">
+            <h2 style="text-align:center;color:#2c3e50;font-size:2rem;margin-bottom:2rem;letter-spacing:1px;">Programmes du Département</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;">
+                <div style="background:#fff;border-radius:14px;box-shadow:0 4px 16px rgba(44,62,80,0.07);padding:2rem 1.2rem;text-align:center;transition:transform 0.2s;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Ville sans bidonville" style="width:54px;height:54px;margin-bottom:1rem;">
+                    <h3 style="color:#3498db;font-size:1.15rem;margin-bottom:0.7rem;">Ville sans bidonville</h3>
+                </div>
+                <div style="background:#fff;border-radius:14px;box-shadow:0 4px 16px rgba(44,62,80,0.07);padding:2rem 1.2rem;text-align:center;transition:transform 0.2s;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Amélioration de condition d'habiter" style="width:54px;height:54px;margin-bottom:1rem;">
+                    <h3 style="color:#27ae60;font-size:1.15rem;margin-bottom:0.7rem;">Amélioration de condition d'habiter</h3>
+                </div>
+                <div style="background:#fff;border-radius:14px;box-shadow:0 4px 16px rgba(44,62,80,0.07);padding:2rem 1.2rem;text-align:center;transition:transform 0.2s;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Habitat menaçant ruine" style="width:54px;height:54px;margin-bottom:1rem;">
+                    <h3 style="color:#e67e22;font-size:1.15rem;margin-bottom:0.7rem;">Habitat menaçant ruine</h3>
+                </div>
+                <div style="background:#fff;border-radius:14px;box-shadow:0 4px 16px rgba(44,62,80,0.07);padding:2rem 1.2rem;text-align:center;transition:transform 0.2s;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Logement destiné à la classe moyenne" style="width:54px;height:54px;margin-bottom:1rem;">
+                    <h3 style="color:#8e44ad;font-size:1.15rem;margin-bottom:0.7rem;">Logement destiné à la classe moyenne</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer style="background:#2c3e50;color:#fff;text-align:center;padding:1.2rem 0;margin-top:2rem;font-size:1rem;">
+        &copy; 2024 Ministère de l'Habitat et de la Politique de la Ville. Tous droits réservés.
+    </footer>
+</body>
+</html>

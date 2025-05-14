@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Mon Site</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6; /* Fond légèrement gris pour contraster */
+        }
+
+        .navbar {
+            background-color: #e9ecef;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-right: 2rem;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-grow: 1;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item a:hover {
+            background-color: #f5f6fa;
+            color: #3498db;
+        }
+
+        .auth-container {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .auth-buttons {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+        }
+
+        .auth-buttons:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .auth-buttons:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .auth-buttons.register {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+
+        .auth-buttons::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .auth-buttons:hover::before {
+            left: 100%;
+        }
+
+        /* --- Styles pour le formulaire d'inscription --- */
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 1rem;
+        }
+
+        .register-container {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center; /* Center logo */
+        }
+
+        .form-logo {
+            max-width: 180px; /* Ajustez la taille si nécessaire */
+            height: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .register-container h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1.5rem; /* Ajusté légèrement */
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #555;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 0.9rem;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+        }
+
+        .login-link {
+             display: block;
+             text-align: center;
+             margin-top: 1.5rem;
+             color: #555;
+        }
+        .login-link a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Imgs/téléchargé.jpg" alt="Logo">
+            <span class="logo-text">Ministère de l'Aménagement du territoire national</span>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="index.html">Accueil</a></li>
+            <li class="nav-item"><a href="E-services.html">E-services</a></li>
+            <li class="nav-item"><a href="Ministre.html">Ministre</a></li>
+            <li class="nav-item"><a href="A propos.html">À propos</a></li>
+        </ul>
+        <div class="auth-container">
+            <a href="Login.html" class="auth-buttons">Login</a>
+            <a href="Register.html" class="auth-buttons register">Register</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="register-container">
+            <img src="Imgs/téléchargé (1).jpg" alt="Logo Ministère" class="form-logo">
+            <h2>Créer un compte</h2>
+            <form action="#" method="post"> <!-- Remplacez # par l'URL de traitement du formulaire -->
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" required>
+                </div>
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="tel">Numéro de téléphone</label>
+                    <input type="tel" id="tel" name="tel" required>
+                </div>
+                <div class="form-group">
+                    <label for="cin">CIN</label>
+                    <input type="text" id="cin" name="cin" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                 <div class="form-group">
+                    <label for="confirm_password">Confirmer le mot de passe</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
+                <button type="submit" class="submit-button">S'inscrire</button>
+            </form>
+             <p class="login-link">Déjà un compte ? <a href="Login.html">Se connecter</a></p>
+        </div>
+    </main>
+
+    <footer style="background:#2c3e50;color:#fff;text-align:center;padding:1.2rem 0;margin-top:2rem;font-size:1rem;">
+        &copy; 2024 Ministère de l'Habitat et de la Politique de la Ville. Tous droits réservés.
+    </footer>
+</body>
+</html>

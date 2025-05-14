@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Ministre - Mon Site</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+        }
+
+        .navbar {
+            background-color: #e9ecef;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-right: 2rem;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            color: #2c3e50;
+            
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-grow: 1;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item a:hover {
+            background-color: #f5f6fa;
+            color: #3498db;
+        }
+
+        .auth-container {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .auth-buttons {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+        }
+
+        .auth-buttons:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .auth-buttons:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .auth-buttons.register {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+
+        .auth-buttons::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .auth-buttons:hover::before {
+            left: 100%;
+        }
+
+        /* Styles pour la section Actualités */
+        .news-section {
+            padding: 2rem;
+            max-width: 900px;
+            margin: 2rem auto;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .news-section h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .news-item {
+            background-color: #ffffff;
+            padding: 1rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .news-item h3 {
+            color: #3498db;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .news-item p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+        }
+
+        .news-item a {
+            text-decoration: none;
+            color: #e67e22;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Styles pour la page Ministre --- */
+        main {
+            padding: 3rem 1rem;
+        }
+
+        .minister-section {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start; /* Aligner en haut */
+        }
+
+        .minister-photo {
+            flex-shrink: 0;
+            width: 200px; /* Ajustez la taille */
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .minister-bio {
+            flex-grow: 1;
+        }
+
+        .minister-bio h2 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        .minister-bio .title {
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            display: block;
+        }
+
+        .minister-bio p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        /* Section Missions du Ministère */
+        .ministry-missions {
+            margin-top: 3rem;
+            padding: 2.5rem;
+            background-color: #f9fafb; /* Fond légèrement différent */
+            border-radius: 8px;
+            border: 1px solid #e7eaf3;
+        }
+
+        .ministry-missions h3 {
+            color: #2c3e50;
+            font-size: 1.7rem; /* Légèrement augmenté */
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Ligne décorative sous le titre */
+        .ministry-missions h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #3498db;
+            border-radius: 2px;
+        }
+
+        .ministry-missions p {
+            color: #444; /* Un peu plus foncé pour le texte */
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .ministry-missions ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .ministry-missions li {
+            color: #555;
+            margin-bottom: 1rem; /* Espacement augmenté */
+            line-height: 1.6;
+            padding-left: 2rem; /* Plus d'espace pour l'icône */
+            position: relative;
+            font-size: 1.05rem; /* Légèrement plus grand */
+        }
+
+        .ministry-missions li::before {
+            content: '\27A4'; /* Flèche vers la droite (ou ✓ pour coche: \2713) */
+            color: #3498db;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -2rem; /* Ajusté avec padding-left */
+            position: absolute;
+            left: 0.8em; /* Positionnement de l'icône */
+            font-size: 1.1em; /* Taille de l'icône */
+        }
+
+        /* Responsive pour petits écrans */
+        @media (max-width: 768px) {
+            .minister-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .minister-photo {
+                margin-bottom: 1.5rem;
+            }
+             .minister-bio p {
+                text-align: left; /* Garder le texte justifié ou aligné à gauche */
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Imgs/téléchargé.jpg" alt="Logo">
+            <span class="logo-text">Ministère de l'Aménagement du territoire national</span>
+            
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="index.html">Accueil</a></li>
+            <li class="nav-item"><a href="E-services.html">E-services</a></li>
+            <li class="nav-item"><a href="Ministre.html">Ministre</a></li>
+            <li class="nav-item"><a href="A propos.html">À propos</a></li>
+        </ul>
+        <div class="auth-container">
+            <a href="Login.html" class="auth-buttons">Login</a>
+            <a href="Register.html" class="auth-buttons register">Register</a>
+        </div>
+    </nav>
+
+    <main>
+        <img src="Imgs/Picture1.png" alt="Diagramme du Ministère" class="minister-diagram" style="margin:auto;display:block;width:900px;max-width:100%;height:auto;box-shadow:0 4px 24px rgba(44,62,80,0.10);border-radius:12px;">
+
+        <section class="ministry-missions">
+            <h3>Missions du Ministère</h3>
+            <p>Le Ministère de l'Aménagement du Territoire National, de l'Urbanisme, de l'Habitat et de la Politique de la Ville est chargé de la préparation et de l'exécution de la politique gouvernementale dans plusieurs domaines clés pour le développement harmonieux et durable du Maroc :</p>
+            <ul>
+                <li>Élaboration et suivi des stratégies d'aménagement du territoire à l'échelle nationale et régionale.</li>
+                <li>Développement et mise en œuvre des politiques d'urbanisme, incluant la planification urbaine et la réglementation.</li>
+                <li>Promotion de l'habitat décent pour tous les citoyens, lutte contre l'habitat insalubre et développement de programmes de logement social.</li>
+                <li>Mise en œuvre de la politique de la ville visant à améliorer le cadre de vie dans les zones urbaines, réduire les disparités et promouvoir la cohésion sociale.</li>
+                <li>Encadrement et promotion du secteur de l'architecture et de la construction durable.</li>
+                <li>Contribution, en coordination avec les autres départements, à la politique de développement rural.</li>
+            </ul>
+            <p>Le ministère œuvre ainsi à garantir un développement équilibré des territoires, à améliorer l'attractivité des villes et à assurer un logement convenable pour l'ensemble de la population.</p>
+        </section>
+    </main>
+    <footer style="background:#2c3e50;color:#fff;text-align:center;padding:1.2rem 0;margin-top:2rem;font-size:1rem;">
+        &copy; 2024 Ministère de l'Habitat et de la Politique de la Ville. Tous droits réservés.
+    </footer>
+</body>
+</html>
